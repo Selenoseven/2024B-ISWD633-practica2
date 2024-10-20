@@ -16,9 +16,11 @@ No puedes mapear puertos a un contenedor existente directamente después de su c
 
 ### Crear contenedor de Jenkins puertos contenedor: 8080 (interface web) y 50000 (comunicación entre nodos) imagen: jenkins/jenkins:alpine3.18-jdk11
 # COMPLETAR
-
+```
+docker run -d -p 8080:8080 -p 50000:50000 --name my-jenkins jenkins/jenkins:alpine3.18-jdk11
+```
 # COLOCAR UNA CAPTURA DE PANTALLA  DEL ACCESO http://localhost:8080
-
+![ImagenJenkins](img/JenkisAcceso.png)
 ### ¿Cómo obtener la contraseña solicitada?
 Para obtener la contraseña solicitada es necesario ingresar al contenedor.
 
@@ -32,11 +34,16 @@ docker exec <nombre contenedor> <comando> <argumentos opcionales>
 ```
 # COMPLETAR
 ### ¿Para qué se usa el comando ls?
+El comnado ls en sistemas basados en Unix como Linux o macOS, se utiliza para listar el contenido de un directorio, muestra los archivos, subdirectorios que se encuentran en el directorio en el que te encuentras o en el que especifiques.
 ### ¿Para qué sirve el argumento -l junto al comando ls?
+El utilizar el argumento -l junsto con el comando ls modifica la salidad para mostrar más detalles sobre los archivos o directorios listados. En lugar de solo mostrar los nombres, muestra una lista con información adicional en forma de columna estos pueden ser: permisos de archivos, número de enlaces duros, propietario del archivo o directorio, grupo al que pertenece, tamaño del archivo, fecha y hora de la última modificación.
 ### Usar el contenedor de jenkins creado previamente y ejecutar el comando ls con el argumento -l
 # COMPLETAR
+ ```
+docker exec -it my-jenkins ls -l
+```
 # COLOCAR UNA CAPTURA DE PANTALLA
-
+![ImagenComando](img/jenkinsCmdLs.png)
 ### Para ejecutar un shell interactivo en un contenedor de Docker especificado.
 El comando **docker exec** te permite acceder a la sesión shell de un contenedor en ejecución, estarás dentro del contenedor y podrás ejecutar comandos como si estuvieras en una terminal normal. 
 Para saber qué comando utilizar para abrir una terminal dentro de un contenedor, es útil conocer la imagen base del contenedor, ya que diferentes imágenes pueden usar diferentes shells o comandos para abrir una terminal. Puedes verificar la documentación de la imagen del contenedor en Docker Hub o en el repositorio de la imagen para obtener información específica sobre cómo abrir una terminal en esa imagen.
@@ -70,7 +77,7 @@ Ejecutar
 whoami
 ```
 # COLOCAR UNA CAPTURA DE PANTALLA
-
+![ShellInteractivo](img/ShellInteractivo.png)
 **Si se visualiza el mensaje command not found, considerar**
 El problema se debe a que no se ha asignado un terminal de salida al contenedor al ejecutar el comando. Cuando usas docker exec -i jenkins-server /bin/bash en Windows, el comando se ejecuta pero no hay un terminal asignado para mostrar la salida del comando ls.
 
@@ -89,12 +96,20 @@ docker exec -it <nombre contenedor> <programa o comando>
 
 ### Ahora puedes acceder al contenedor de jenkins y obtener la contraseña ubicada en /var/jenkins_home/secrets/initialAdminPassword
 
+```
+docker exec -it my-jenkins /bin/bash
+
+```
+```
+cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
 # COMPLETAR
 
 ### Colocar una captura de pantalla de la ventana que aparece después de colocar la contraseña.
 
 **Para este punto no es necesario continuar con la instalación de Jenkins**
-
+![Contraseña](img/contrasenia.png)
 
 ### Para ver los logs de un contenedor
 
