@@ -1,3 +1,1 @@
-# COMPLETAR  
-Comparando sus conocimientos antes de hacer la práctica con sus conocimientos después de hacer la tarea, explicar los principales aprendizajes logrados para beneficio de su formación profesional.  
-Si solucionó un problema presentado al realizar la práctica también se debe documentar.
+Posterior a realizar la práctica considero que he crecido en conocimiento en lo que sería docker, en está práctica partiendo de las variables de entorno aprendí a crear contenedores con variables de entono, haciendolo con archivos .env el cual me sirvió para algunos ejercicios de mysql al igual que con wordpress, algo que también gracias a la práctica aprendí fue el uso de pgAdmin, tanto desde su interfaz como comandos. Por último considero que el ejercicio 5 fue muy interesante para poner en juego los comando de redes y aprender un poco de wordpress.
